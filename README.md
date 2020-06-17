@@ -4,19 +4,9 @@ Build a chat app with Laravel, Vue.js and Pusher. Follow the tutorial [https://p
 
 ## Getting Started
 
-Clone the project repository by running the command below if you use SSH
-
-```bash
-git clone git@github.com:ammezie/laravel-chat.git
-```
-
-If you use https, use this instead
-
 ```bash
 git clone https://github.com/ammezie/laravel-chat.git
 ```
-
-After cloning,run:
 
 ```bash
 composer install
@@ -66,13 +56,3 @@ php artisan serve
 ```
 
 and visit [http://localhost:8000/](http://localhost:8000/) to see the application in action.
-
-## Built With
-
-* [Pusher](https://pusher.com/) - APIs to enable devs building realtime features
-* [Laravel](https://laravel.com) - The PHP Framework For Web Artisans
-* [Vue.js](https://vuejs.org) - The Progressive JavaScript Framework
-
-## Acknowledgments
-
-* [Bootsnipp chat snippet](http://bootsnipp.com/snippets/featured/collapsible-chat-widget)
