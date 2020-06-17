@@ -1,11 +1,11 @@
 # laravel-chat
 
-Build a chat app with Laravel, Vue.js and Pusher. Follow the tutorial [https://pusher.com/tutorials/chat-laravel](https://pusher.com/tutorials/chat-laravel)
+Build a chat app with Laravel, Vue.js and Pusher.
 
 ## Getting Started
 
 ```bash
-git clone https://github.com/ammezie/laravel-chat.git
+git clone https://github.com/ycsiow888/simple-chat-app
 ```
 
 ```bash
