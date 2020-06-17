@@ -43,7 +43,7 @@ PUSHER_APP_CLUSTER=
 
 #### Database Migrations
 
-Be sure to fill in your database details in your `.env` file before running the migrations:
+Be sure to fill in your database details in your `.env` file and create database 'simple-chat-app' before running the migrations:
 
 ```bash
 php artisan migrate
