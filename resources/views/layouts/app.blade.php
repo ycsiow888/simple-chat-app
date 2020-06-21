@@ -57,10 +57,12 @@
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
-            'pusherKey' => config('broadcasting.connections.pusher.key'),
-            'pusherCluster' => config('broadcasting.connections.pusher.cluster')
+            // 'pusherKey' => config('broadcasting.connections.pusher.key'),
+            // 'pusherCluster' => config('broadcasting.connections.pusher.cluster')
         ]) !!};
     </script>
+    <!-- Scripts -->
+    <script src="/js/app.js"></script>
 </head>
 
 <body>
@@ -126,8 +128,11 @@
         @yield('content')
     </div>
 
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
+
+
+    {{-- <script src="{{ asset('js/app.js')}}" charset="utf-8"></script> --}}
+
+
 </body>
 
 </html>
