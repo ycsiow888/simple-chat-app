@@ -20,26 +20,6 @@ Then run:
 php artisan key:generate
 ```
 
-### Prerequisites
-
-#### Setup Pusher
-
-If you don't have one already, create a free Pusher account at [https://pusher.com/signup](https://pusher.com/signup) then login to your dashboard and create an app.
-
-Set the `BROADCAST_DRIVER` in your `.env` file to **pusher**:
-
-```txt
-BROADCAST_DRIVER=pusher
-```
-
-Then fill in your Pusher app credentials in your `.env` file:
-
-```txt
-PUSHER_APP_ID=xxxxxx
-PUSHER_APP_KEY=xxxxxxxxxxxxxxxxxxxx
-PUSHER_APP_SECRET=xxxxxxxxxxxxxxxxxxxx
-PUSHER_APP_CLUSTER=
-```
 
 #### Database Migrations
 
@@ -53,6 +33,10 @@ And finally, start the application:
 
 ```bash
 php artisan serve
+```
+Open another terminal and type
+```bash
+laravel-echo-server start
 ```
 
 and visit [http://localhost:8000/](http://localhost:8000/) to see the application in action.
