@@ -17,11 +17,7 @@
   "dependencies": {
     "cross-env": "^7.0.2",
     "laravel-echo": "^1.2.3",
-<<<<<<< HEAD
-    "pusher-js": "^4.0.0"
-=======
     "pusher-js": "^4.0.0",
     "socket.io-client": "^2.3.0"
->>>>>>> 5dd43a39fd3bd371b40953e46377d4fd04c643cb
   }
 }
