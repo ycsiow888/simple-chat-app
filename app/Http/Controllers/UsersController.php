@@ -30,7 +30,12 @@ class UsersController extends Controller
     {
         $user = User::find(2);
         
-        return ['online_status'=>$user->online_status];
+        $status = 'offline';
+
+        if ($user) {
+            $status = $user->online_status;
+        }
+        return ['online_status'=>$status];
     }
 
     /**
