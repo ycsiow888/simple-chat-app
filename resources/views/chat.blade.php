@@ -52,8 +52,10 @@
         }
     });
 
+    // get user online
     getUser();
 
+    // fetch message
     fetchMessage();
 
     $("#btn-input").keyup(function (event) {
@@ -64,6 +66,17 @@
 
     $('.typing').hide()
 
+    // when user not focusing on input then no longer typing message
+    $('#btn-input').focusout(function(){
+        let channel = Echo.private('chat')
+
+        channel.whisper('typing', {
+                user: currentUserId,
+                typing: false
+            })
+    })
+
+    // when user typing telling other user for typing event
     $('#btn-input').on('keydown', function (e) {
         let channel = Echo.private('chat')
         let typing = false;
@@ -71,6 +84,10 @@
             typing = true;
         }
         setTimeout(() => {
+            typing=true;
+            if (this.value == '') {
+            typing = false;
+        }
             channel.whisper('typing', {
                 user: currentUserId,
                 typing: typing
@@ -78,6 +95,7 @@
         }, 300)
     })
 
+    // listen other user for typing event and whenever receiving message
     Echo.private('chat')
         .listenForWhisper('typing', (e) => {
             if (e.user != currentUserId && e.typing) {
@@ -87,12 +105,13 @@
             }
         })
         .listen('MessageDelivered', (e) => {
-            console.log('message delivered');
             let image =
                 "{{ URL::asset('image/green_tick.svg') }}";
             $('.pending_image').attr('src', image);
         })
+    
 
+    // update user online status and send message
     Echo.join('chat')
         .listen('UserOnlines', (e) => {
             $('#online_status').text('Online').css({
@@ -111,6 +130,7 @@
             if (currentUserName == e.user.name) {
                 style = "text-align:right";
             }
+
             let appendHtml = '<li class="left clearfix" style=' + style + '>';
             appendHtml += '<div class="chat-body clearfix">';
             appendHtml += '<div class="header">';
@@ -125,7 +145,9 @@
                 '<img class="pending_image" style="width:10px;height:10px" src="{{ URL::asset("image/grey_tick.png") }}"></img>';
             appendHtml += '</div>';
             appendHtml += '</li>';
+
             chat.append(appendHtml);
+
             messagesContainer.scrollTop(messagesContainer.prop("scrollHeight"));
         });
 
@@ -147,12 +169,7 @@
                 user: currentUser,
                 message
             }).then(response => {
-                console.log('halo');
-                //    let  image =
-                //         "<img src ='{{ URL::asset('image/green_tick.svg') }}' style='height:10px;width:10px'></img>";
-                //     $('.pending_reading').after(image);
                 if ($('#online_status').text() == 'Online') {
-                    console.log("updating status");
                     axios.post("/receivedMessages", {
                         id: response.data.data.id
                     }).then(response => {});
@@ -160,8 +177,6 @@
             });
 
             $('#btn-input').val('');
-
-
         }
     }
 
@@ -199,7 +214,6 @@
 
     function getUser() {
         axios.get('/getUser', {}).then(response => {
-            console.log("getting user online status ", response);
             if (response.data.online_status == 'offline') {
                 $('#online_status').text('Offline').css({
                     'color': 'red',

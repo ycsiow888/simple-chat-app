@@ -63,12 +63,6 @@
     </script>
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-    <script>
-        $("#login").click(function(){
-            alert("Logging in. ",currentUserId);
-          axios.post('/online', {id:currentUserId}).then(response => {});
-        });
-    </script>
 </head>
 
 <body>
