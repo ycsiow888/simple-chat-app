@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Message;
 use App\Events\MessageSent;
+use App\Events\MessageDelivered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,7 +29,7 @@ class ChatsController extends Controller
     {
         return view('chat');
     }
-
+   
     /**
      * Fetch all messages
      *
@@ -50,15 +51,29 @@ class ChatsController extends Controller
         $user = Auth::user();
 
         $message = $user->messages()->create([
-            'message' => $request->input('message')
+            'message' => $request->input('message'),
+            'status' => 'pending'
         ]);
 
-        // broadcast(new MessageSent($user, $message))->toOthers();
-        try {
-            broadcast(new MessageSent($user, $message))->toOthers();
-        } catch (Exception $e) {
-            var_dump($e);
-        }
-        return ['status' => 'Message Sent!'];
+        broadcast(new MessageSent($user, $message))->toOthers();
+            
+        return ['status' => 'Message Sent!','data'=>$message];
+    }
+
+    /**
+    * Update Message Status
+    *
+    * @param  Request $request
+    * @return Response
+    */
+    public function MessageDelivered(Request $request)
+    {
+        $message = Message::find($request->input('id'));
+
+        $message->status = 'Delivered';
+
+        $message->save();
+        
+        broadcast(new MessageDelivered($message));
     }
 }

@@ -40,7 +40,7 @@ class MessageSent implements ShouldBroadcast
         $this->user = $user;
         $this->message = $message;
     }
-
+    
     /**
      * Get the channels the event should broadcast on.
      *
@@ -48,6 +48,6 @@ class MessageSent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('chat');
+        return new PresenceChannel('chat');
     }
 }

@@ -63,6 +63,12 @@
     </script>
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script>
+        $("#login").click(function(){
+            alert("Logging in. ",currentUserId);
+          axios.post('/online', {id:currentUserId}).then(response => {});
+        });
+    </script>
 </head>
 
 <body>
@@ -107,7 +113,7 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    <a id="logout" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>

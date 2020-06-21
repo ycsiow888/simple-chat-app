@@ -16,3 +16,8 @@ Auth::routes();
 Route::get('/', 'ChatsController@index');
 Route::get('messages', 'ChatsController@fetchMessages');
 Route::post('messages', 'ChatsController@sendMessage');
+Route::post('receivedMessages', 'ChatsController@MessageDelivered');
+Route::post('online', 'UsersController@online');
+Route::post('offline', 'UsersController@offline');
+Route::get('getUser', 'UsersController@getUser');
+
