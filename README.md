@@ -1,22 +1,12 @@
 # laravel-chat
 
-Build a chat app with Laravel, Vue.js and Pusher. Follow the tutorial [https://pusher.com/tutorials/chat-laravel](https://pusher.com/tutorials/chat-laravel)
+Build a chat app with Laravel, Vue.js and Pusher.
 
 ## Getting Started
 
-Clone the project repository by running the command below if you use SSH
-
 ```bash
-git clone git@github.com:ammezie/laravel-chat.git
+git clone https://github.com/ycsiow888/simple-chat-app.git
 ```
-
-If you use https, use this instead
-
-```bash
-git clone https://github.com/ammezie/laravel-chat.git
-```
-
-After cloning,run:
 
 ```bash
 composer install
@@ -53,7 +43,7 @@ PUSHER_APP_CLUSTER=
 
 #### Database Migrations
 
-Be sure to fill in your database details in your `.env` file before running the migrations:
+Be sure to fill in your database details in your `.env` file and create database 'simple-chat-app' before running the migrations:
 
 ```bash
 php artisan migrate
@@ -66,13 +56,3 @@ php artisan serve
 ```
 
 and visit [http://localhost:8000/](http://localhost:8000/) to see the application in action.
-
-## Built With
-
-* [Pusher](https://pusher.com/) - APIs to enable devs building realtime features
-* [Laravel](https://laravel.com) - The PHP Framework For Web Artisans
-* [Vue.js](https://vuejs.org) - The Progressive JavaScript Framework
-
-## Acknowledgments
-
-* [Bootsnipp chat snippet](http://bootsnipp.com/snippets/featured/collapsible-chat-widget)

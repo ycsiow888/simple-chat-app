@@ -16,20 +16,34 @@ require('bootstrap-sass');
  * and simple, leaving you to focus on building your next great project.
  */
 
+<<<<<<< HEAD
 window.Vue = require('vue');
 
+=======
+// window.Vue = require('vue');
+window.io = require('socket.io-client');
+>>>>>>> 5dd43a39fd3bd371b40953e46377d4fd04c643cb
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
+<<<<<<< HEAD
 window.axios = require('axios');
 
 window.axios.defaults.headers.common = {
   'X-CSRF-TOKEN': window.Laravel.csrfToken,
   'X-Requested-With': 'XMLHttpRequest',
 };
+=======
+// window.axios = require('axios');
+
+// window.axios.defaults.headers.common = {
+//   'X-CSRF-TOKEN': window.Laravel.csrfToken,
+//   'X-Requested-With': 'XMLHttpRequest',
+// };
+>>>>>>> 5dd43a39fd3bd371b40953e46377d4fd04c643cb
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -40,8 +54,13 @@ window.axios.defaults.headers.common = {
 import Echo from 'laravel-echo';
 
 window.Echo = new Echo({
+<<<<<<< HEAD
   broadcaster: 'pusher',
   key: Laravel.pusherKey,
   cluster: Laravel.pusherCluster,
   encrypted: true,
+=======
+  broadcaster: 'socket.io',
+  host: window.location.hostname + ':6001',
+>>>>>>> 5dd43a39fd3bd371b40953e46377d4fd04c643cb
 });
