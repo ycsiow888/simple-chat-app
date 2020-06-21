@@ -34,5 +34,9 @@ And finally, start the application:
 ```bash
 php artisan serve
 ```
+Open another terminal and type
+```bash
+laravel-echo-server start
+```
 
 and visit [http://localhost:8000/](http://localhost:8000/) to see the application in action.
