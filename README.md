@@ -1,6 +1,6 @@
 # laravel-chat
 
-Build a chat app with Laravel, Vue.js and Pusher.
+Build a chat app with Laravel, redis and socket
 
 ## Getting Started
 
